@@ -1,0 +1,87 @@
+.nepali-date-picker{
+    position: relative;
+    display: inline-block;
+}
+.nepali-date-picker a.active svg{
+    fill: #e45415;
+    opacity: 0.9;
+}
+.nepali-date-picker svg{
+    width: 14px;
+    opacity: 0.3;
+    position: absolute;
+    right: 8px;
+    top: 12px;
+    cursor: pointer;
+}
+.datepicker__container{
+    border: 1px solid #eee;
+    background: #fff;
+    width: 292px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    position: absolute;
+}
+.datepicker__options-container{
+    padding: 18px 20px 18px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e45415;
+    color: #fff;
+}
+.datepicker__days-container{
+    display: flex;
+    justify-content: space-evenly;
+    color: #777;
+}
+.datepicker__days{
+    text-align: center;
+    border: 1px solid #eee;
+}
+.datepicker__weekday{
+    padding: 10px;
+    background-color: #eee;
+    margin-bottom: 1px;
+    font-weight: bold;
+}
+.datepicker__date-container{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+}
+.datepicker__date{
+    cursor: pointer;
+}
+.datepicker__date:hover{
+    background-color: #eee;
+}
+.datepicker__date--active.datepicker__date--active{
+    background-color: #e45415;
+    color: #fff;
+}
+.datepicker__options-container span{
+    font-size: 14px;
+}
+select:focus,
+select:focus-visible{
+    outline: 1px solid #fff;
+}
+select{
+    border: none;
+    color: #fff;
+    background: none; 
+    font-size: 16px;
+}
+select option{
+    color:  #333;
+}
+.np_datepicker_input{
+    border: 1px solid #eee;
+    padding: 10px;
+    font-size: 16px;
+    color: #777;
+}
+.np_datepicker_input:focus-visible{
+    outline: 2px solid #e45415;
+}
