@@ -1,9 +1,8 @@
-<div class="nepali-date-picker">
+<div class="nepali-date-picker" [ngClass]="theme">
   <input
     class="np_datepicker_input"
     type="text"
     [value]="formattedDate"
-    [ngClass]="inputClass"
     (focus)="open()"
     (keydown)="$event.preventDefault()"
     aria-hidden="true"

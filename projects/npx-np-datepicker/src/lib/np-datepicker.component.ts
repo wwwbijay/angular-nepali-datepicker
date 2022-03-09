@@ -55,7 +55,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   alwaysVisible = false;
 
-  inputClass!: string;
+  @Input()
+  theme!: string;
 
   @Input()
   language: 'en' | 'ne' = 'ne';
