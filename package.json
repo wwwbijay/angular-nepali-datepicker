@@ -7,9 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "npdpbuild": "ng build ngx-np-datepicker"
+    "npdpbuild": "ng build --prod ngx-np-datepicker"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
     "@angular/common": "~13.1.0",
