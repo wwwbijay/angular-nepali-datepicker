@@ -1,0 +1,21 @@
+.container{
+    padding: 30px;
+    width: 850px;
+    margin: 20px auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.output{
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #eee; 
+}
+.output-title{
+    margin: 10px 0;
+}
+.output p{
+    margin: 4px 0;
+}

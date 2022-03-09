@@ -1,3 +1,23 @@
 <div class="container">
-  <np-datepicker theme="dark" ></np-datepicker>
+  <h1>Angular Nepali Date Picker</h1>
+  <p>
+    A simple Nepali Date Picker (Bikram Sambat) library in angular with no dependancy.
+  </p>
+  
+  <div class="usage">
+    <div class="html">
+      <np-datepicker theme="light" [(ngModel)]="nepaliDate"></np-datepicker>
+    </div>
+    <div *ngIf="nepaliDate" class="output">
+     <h4 class="output-title"> Output: </h4>
+      <p>   day: {{nepaliDate.day}}, </p>
+        <p>  month: {{nepaliDate.month }}, </p> 
+          <p>   year: {{ nepaliDate.year }} </p>
+            
+    </div>
+  </div>
+  
+
+
+
 </div>
