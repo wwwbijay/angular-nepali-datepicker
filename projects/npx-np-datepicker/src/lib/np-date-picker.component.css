@@ -8,7 +8,7 @@
     fill: #e45415;
     opacity: 0.9;
 }
-.nepali-date-picker svg{
+.nepali-date-picker .form-icon svg{
     width: 14px;
     opacity: 0.3;
     position: absolute;
@@ -22,14 +22,16 @@
     width: 294px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     position: absolute;
+    z-index: 99999;
 }
 .datepicker__options-container{
-    padding: 18px 20px 18px 20px;
+    padding: 18px 8px 18px 8px;
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
     background-color: #e45415;
     color: #fff;
+    line-height: 30px;
 }
 .datepicker__days-container{
     display: flex;
@@ -73,7 +75,7 @@ select{
     border: none;
     color: #fff;
     background: none; 
-    font-size: 16px;
+    font-size: 14px;
 }
 select option{
     color:  #333;
@@ -88,6 +90,34 @@ select option{
     outline: 2px solid #e45415;
 }
 
+.prev-month,
+.next-month{
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    display: block;
+    opacity: 0.5;
+    border-radius: 50%;
+    background: #f3f3f3;
+    cursor: pointer;
+    text-align: center;
+    line-height: 25px;
+}
+.next-month:hover,
+.prev-month:hover{
+    background: #ccc;
+}
+.prev-month svg,
+.next-month svg{
+    max-width: 10px;
+    height: auto;
+}
+.prev-month{
+    margin-right: 5px;
+}
+.next-month{
+    margin-left: 5px;
+}
 /********************
 Dark Theme
 *********************/
@@ -143,7 +173,7 @@ Light Theme
     background-color: #aaa;
     color: #fff;
 }
-.np_datepicker_input:focus-visible{
+.light .np_datepicker_input:focus-visible{
     outline: 1px solid #ddd;
 }
 
@@ -168,7 +198,7 @@ lightblue Theme
 .lightblue .np_datepicker_input:focus-visible{
     outline: 2px solid #38c5f0da;
 }
-.np_datepicker_input:focus-visible{
+.lightblue .np_datepicker_input:focus-visible{
     outline: 1px solid #38c5f0da;
 }
 

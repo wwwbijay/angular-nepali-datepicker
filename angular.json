@@ -58,6 +58,7 @@
               "projects/npdatepickertest/src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "projects/npdatepickertest/src/styles.css"
             ],
             "scripts": []
@@ -133,5 +134,5 @@
       }
     }
   },
-  "defaultProject": "npx-np-datepicker"
+  "defaultProject": "ngx-np-datepicker"
 }

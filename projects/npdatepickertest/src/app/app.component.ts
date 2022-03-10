@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'npdatepickertest';
-  nepaliDate:any;
+  nepaliDate1:any;
+  nepaliDate2:any;
+  nepaliDate3:any;
 }
