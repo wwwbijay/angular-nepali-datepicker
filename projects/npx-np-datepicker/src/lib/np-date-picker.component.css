@@ -71,11 +71,12 @@ select:focus,
 select:focus-visible{
     outline: 1px solid #fff;
 }
-select{
+.datepicker__options-year-container select{
     border: none;
     color: #fff;
     background: none; 
     font-size: 14px;
+    width: 58px;
 }
 select option{
     color:  #333;

@@ -33,9 +33,6 @@ then use `<np-datepicker [(ngModel)]="nepaliDate"></np-datepicker>` in your temp
 <np-datepicker></np-datepicker>
 ```
 
-
-
-
 ### Note
 This package has no dependancy.
 
