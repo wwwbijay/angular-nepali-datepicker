@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NpxNpDatepickerComponent } from './npx-np-datepicker.component';
+import { NpDatePickerComponent } from './np-datepicker.component';
 
 describe('NpxNpDatepickerComponent', () => {
-  let component: NpxNpDatepickerComponent;
-  let fixture: ComponentFixture<NpxNpDatepickerComponent>;
+  let component: NpDatePickerComponent;
+  let fixture: ComponentFixture<NpDatePickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NpxNpDatepickerComponent ]
+      declarations: [ NpDatePickerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NpxNpDatepickerComponent);
+    fixture = TestBed.createComponent(NpDatePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

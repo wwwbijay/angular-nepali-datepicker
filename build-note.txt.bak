@@ -1,0 +1,16 @@
+1. Build:
+npm run npdpbuild
+
+2. Publish:
+goto dist/npx-np-datepicker
+npm publish
+
+3. Create demo file
+goto npdpdemo project.
+install new package.
+ng build
+
+4. Publish demo
+goto libraries/ngx-np-datepicker-sitebranch
+save build file from npdpdemo project.
+git push on branch 'site'

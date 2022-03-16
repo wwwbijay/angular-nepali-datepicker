@@ -61,7 +61,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   @Input()
   language: 'en' | 'ne' = 'ne';
   @Input()
-  monthDisplayType: 'default' | 'modern' | 'short' = 'modern';
+  monthDisplayType: 'default' | 'modern' | 'short' = 'default';
 
   dayDisplayType: 'default' | 'short' = 'short';
 
