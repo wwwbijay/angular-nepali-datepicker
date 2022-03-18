@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'npdatepickertest';
   nepaliDate1:any;
-  nepaliDate2:any;
-  nepaliDate3:any;
+
+  constructor(){
+    console.log(this.nepaliDate1);    
+  }
 }

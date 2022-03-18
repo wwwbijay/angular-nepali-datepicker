@@ -85,8 +85,8 @@ export class NpDatePickerService {
     [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
     [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30], // 2076
     [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-    [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
+    [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30], // 2078
+    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2079
     [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30],
     [31, 31, 32, 32, 31, 30, 30, 30, 29, 30, 30, 30],
     [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30],
@@ -126,7 +126,7 @@ export class NpDatePickerService {
 
   setCurrentNepaliDate() {
     var d = new Date();
-    return this.engToNepDate( d.getDate(), d.getMonth() + 1,d.getFullYear() );
+    return this.engToNepDate( d.getDate(), d.getMonth(),d.getFullYear() );
   }
 
   //English to Nepali date conversion
@@ -135,32 +135,39 @@ export class NpDatePickerService {
       console.log('Invalid date format.');
 
     this.englishYear = year;
-    this.englishMonth = month;
+    this.englishMonth = month + 1;
     this.englishDate = date;
-
+    
     //Setting nepali reference to 2000/1/1 with english date 1943/4/14
     this.nepaliYear = 2000;
     this.nepaliMonth = 1;
-    this.nepaliDate = 0;
+    this.nepaliDate = 1;
 
     var difference = this.getEnglishDateDifference(1943, 4, 14);
+    
+    
     //Getting nepali year untill the difference remains less than 365
     var index = 0;
     while (difference >= this.nepaliYearDays(index)) {
       this.nepaliYear++;
       difference = difference - this.nepaliYearDays(index);
       index++;
+      //console.log('Difference:'+difference+ 'nepaliYearDays:'+this.nepaliYearDays(index));
     }
+    
 
+    console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
     //Getting nepali month untill the difference remains less than 31
     var i = 0;
     while (difference >= this.nepaliMonths[index][i]) {
       difference = difference - this.nepaliMonths[index][i];
       this.nepaliMonth++;
       i++;
+      console.log("nepaliMonths="+this.nepaliMonths[index][i]+"difference:"+difference);
     }
-  
-    
+    this.nepaliMonth--;
+    console.log(difference);
+   
     //Remaning days is the date;
     this.nepaliDate = this.nepaliDate + difference;
     this.getDay();
@@ -170,7 +177,7 @@ export class NpDatePickerService {
       month: this.nepaliMonth,
       year: this.nepaliYear
     };
-}
+  }
 
   toEnglishString(format: any) {
     if (typeof format === 'undefined') format = '-';
@@ -300,9 +307,7 @@ export class NpDatePickerService {
 
   nepaliYearDays(index: any) {
     var total = 0;
-
     for (var i = 0; i < 12; i++) total += this.nepaliMonths[index][i];
-
     return total;
   }
 

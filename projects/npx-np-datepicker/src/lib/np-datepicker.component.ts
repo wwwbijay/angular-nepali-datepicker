@@ -60,7 +60,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   @Input()
   language: 'en' | 'ne' = 'ne';
-  @Input()
+
   monthDisplayType: 'default' | 'modern' | 'short' = 'default';
 
   dayDisplayType: 'default' | 'short' = 'short';
@@ -72,6 +72,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       selectedDate.month < 10 ? '0' + selectedDate.month : selectedDate.month;
     return `${dd}/${mm}/${this.selectedDate.year}`;
   };
+
+  initialized:boolean = false;
 
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
@@ -88,7 +90,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() {
-    this.nepaliDateToday = this._nepaliDate.setCurrentNepaliDate();
+    //this.nepaliDateToday = this._nepaliDate.setCurrentNepaliDate();
+    //console.log(this.nepaliDateToday);
     this.setCurrentDate();
     this.populateYears();
     this.setCurrentMonthData();
@@ -101,19 +104,22 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
   selectYear(e: any) {
-    this.currentNepaliDate.year = e.target.value;
+    this.currentNepaliDate.year = parseInt(e.target.value);
 
     const newDate = {
       day: this.currentNepaliDate.day,
       month: this.currentNepaliDate.month,
       year: this.currentNepaliDate.year,
     };
+    
+   // console.log(this.currentDate);
 
     this.currentDate = this._nepaliDate.nepToEngDate(
       newDate.day,
-      newDate.month + 1,
+      newDate.month,
       newDate.year
     );
+   // console.log(this.currentDate);
     this.setCurrentMonthData();
   }
 
@@ -133,7 +139,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     };
     this.currentDate = this._nepaliDate.nepToEngDate(
       newNepaliDate.day,
-      newNepaliDate.month + 1,
+      newNepaliDate.month,
       newNepaliDate.year
     );
     this.setCurrentMonthData();
@@ -162,6 +168,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   propagateTouch = (_: any) => {};
 
   writeValue(value: any) {
+    this.propagateChange(this.selectedDate);
     if (value) {
       this.selectedDate = value;
       this.currentNepaliDate = value;
@@ -186,18 +193,19 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       this.currentNepaliDate = this._nepaliDate.engToNepDate(day, month, year);
       this.currentDate = this._nepaliDate.nepToEngDate(
         this.selectedDate.year,
-        this.selectedDate.month + 1,
+        this.selectedDate.month,
         this.selectedDate.day
       );
     }
+  
   }
 
   setCurrentMonthData() {
     this.resetCurrentMonthData();
-
+    
     // fill the currentMonthData with current date
     let day = this.currentDate.getDay();
-
+    
     this.currentMonthData[day] = [this.currentNepaliDate.day];
 
     // fill the currentMonthData with day before the current date
@@ -269,9 +277,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   selectDate(day: number) {
-    console.log(this.currentNepaliDate);
     this.selectedDate = { ...this.currentNepaliDate, day };
-    console.log(this.selectedDate);
     this.formatValue();
     this.close();
     this.propagateChange(this.selectedDate);
@@ -292,7 +298,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     };
     this.currentDate = this._nepaliDate.nepToEngDate(
       newNepaliDate.day,
-      newNepaliDate.month + 1,
+      newNepaliDate.month,
       newNepaliDate.year
     );
     this.setCurrentMonthData();
@@ -305,7 +311,6 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     } else {
       this.currentNepaliDate.month++;
     }
-    console.log(this.currentNepaliDate);
    
     const newDate = {
       day: this.currentNepaliDate.day,
@@ -314,7 +319,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     };
     this.currentDate = this._nepaliDate.nepToEngDate(
       newDate.day,
-      newDate.month + 1,
+      newDate.month,
       newDate.year
     );
     this.setCurrentMonthData();
