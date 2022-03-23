@@ -156,17 +156,17 @@ export class NpDatePickerService {
     }
     
 
-    console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
+    //console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
     //Getting nepali month untill the difference remains less than 31
     var i = 0;
     while (difference >= this.nepaliMonths[index][i]) {
       difference = difference - this.nepaliMonths[index][i];
       this.nepaliMonth++;
       i++;
-      console.log("nepaliMonths="+this.nepaliMonths[index][i]+"difference:"+difference);
+      //console.log("nepaliMonths="+this.nepaliMonths[index][i]+"difference:"+difference);
     }
     this.nepaliMonth--;
-    console.log(difference);
+    //console.log(difference);
    
     //Remaning days is the date;
     this.nepaliDate = this.nepaliDate + difference;
@@ -238,7 +238,7 @@ export class NpDatePickerService {
     }
 
     this.nepaliYear = year;
-    this.nepaliMonth = month;
+    this.nepaliMonth = month+1;
     this.nepaliDate = date;
 
     //Setting english reference to 1944/1/1 with nepali date 2000/9/17
@@ -314,7 +314,7 @@ export class NpDatePickerService {
   isNepaliRange(date: any, month: any, year: any) {
     if (year < 2000 || year > 2099) return false;
 
-    if (month < 1 || month > 12) return false;
+    if (month < 0 || month > 11) return false;
 
     if (date < 1 || date > this.nepaliMonths[year - 2000][month - 1])
       return false;
@@ -353,8 +353,5 @@ export class NpDatePickerService {
   getNepaliDate() {
     return this.nepaliDate;
   }
-
-
-
 
 }

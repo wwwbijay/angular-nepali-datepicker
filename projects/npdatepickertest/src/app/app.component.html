@@ -17,7 +17,7 @@
             <div class="row">
               <div class="col col-6 html">
                 <p>This is basic usage.</p>
-                <np-datepicker [(ngModel)]="nepaliDate1"></np-datepicker>
+                <np-datepicker [(ngModel)]="nepaliDate1" (ngModelChange)="dateChanged()"></np-datepicker>
                 <div class="output">
                   <h4 class="output-title">Output:</h4>
                   <div *ngIf="nepaliDate1">
@@ -36,7 +36,6 @@
             </div><!--.row ends-->
           </div><!--.card-body ends-->
         </div><!--.card ends-->
-
       </ng-template>
     </li>
     

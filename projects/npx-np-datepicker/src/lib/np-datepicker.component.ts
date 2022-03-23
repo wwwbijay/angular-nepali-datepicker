@@ -90,12 +90,10 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() {
-    //this.nepaliDateToday = this._nepaliDate.setCurrentNepaliDate();
-    //console.log(this.nepaliDateToday);
     this.setCurrentDate();
+    this.selectDate(this.currentNepaliDate.day);
     this.populateYears();
     this.setCurrentMonthData();
-    this.selectDate(this.currentNepaliDate.day);
   }
 
   populateYears() {
@@ -111,15 +109,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       month: this.currentNepaliDate.month,
       year: this.currentNepaliDate.year,
     };
-    
-   // console.log(this.currentDate);
 
     this.currentDate = this._nepaliDate.nepToEngDate(
       newDate.day,
       newDate.month,
       newDate.year
     );
-   // console.log(this.currentDate);
+
     this.setCurrentMonthData();
   }
 
@@ -129,7 +125,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       this.monthsMapping[this.language][this.monthDisplayType]?.indexOf(
         month
       ) ?? 0;
-
+    
     this.currentNepaliDate.month = nep_month_index;
 
     const newNepaliDate = {
@@ -137,11 +133,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       month: this.currentNepaliDate.month,
       year: this.currentNepaliDate.year,
     };
+    
     this.currentDate = this._nepaliDate.nepToEngDate(
       newNepaliDate.day,
       newNepaliDate.month,
       newNepaliDate.year
     );
+    console.log(this.currentDate);
     this.setCurrentMonthData();
   }
 
@@ -156,17 +154,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       6: [],
     };
   }
-
   formatValue() {
     if (this.selectedDate) {
       this.formattedDate = this.dateFormatter(this.selectedDate);
     }
   }
-
   propagateChange = (_: any) => {};
-
   propagateTouch = (_: any) => {};
-
   writeValue(value: any) {
     this.propagateChange(this.selectedDate);
     if (value) {
@@ -176,7 +170,6 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
   registerOnTouched() {}
-
   registerOnChange(fn: any) {
     this.propagateChange = fn;
   }
@@ -197,7 +190,6 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
         this.selectedDate.day
       );
     }
-  
   }
 
   setCurrentMonthData() {
@@ -284,6 +276,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   prevMonth() {
+
     if (this.currentNepaliDate.month <= 0) {
       this.currentNepaliDate.month = 11;
       this.currentNepaliDate.year--;
@@ -301,6 +294,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       newNepaliDate.month,
       newNepaliDate.year
     );
+    
+    
     this.setCurrentMonthData();
   }
 
