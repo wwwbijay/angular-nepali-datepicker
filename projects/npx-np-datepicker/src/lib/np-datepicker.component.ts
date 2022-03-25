@@ -61,6 +61,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   @Input()
   language: 'en' | 'ne' = 'ne';
 
+  @Input() hasFuture: Boolean = true;
+
   monthDisplayType: 'default' | 'modern' | 'short' = 'default';
 
   dayDisplayType: 'default' | 'short' = 'short';
@@ -69,11 +71,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     const dd =
       selectedDate.day < 10 ? '0' + selectedDate.day : selectedDate.day;
     const mm =
-      selectedDate.month < 10 ? '0' + selectedDate.month : selectedDate.month;
+      selectedDate.month < 10
+        ? '0' + (selectedDate.month + 1)
+        : selectedDate.month + 1;
     return `${dd}/${mm}/${this.selectedDate.year}`;
   };
 
-  initialized:boolean = false;
+  initialized: boolean = false;
 
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
@@ -87,6 +91,11 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     private eRef: ElementRef
   ) {
     this.currentDate = new Date();
+    this.nepaliDateToday = _nepaliDate.engToNepDate(
+      this.currentDate.getDate(),
+      this.currentDate.getMonth(),
+      this.currentDate.getFullYear()
+    );
   }
 
   ngOnInit() {
@@ -94,6 +103,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     this.selectDate(this.currentNepaliDate.day);
     this.populateYears();
     this.setCurrentMonthData();
+    console.log(this.currentMonthData);
   }
 
   populateYears() {
@@ -125,7 +135,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       this.monthsMapping[this.language][this.monthDisplayType]?.indexOf(
         month
       ) ?? 0;
-    
+
     this.currentNepaliDate.month = nep_month_index;
 
     const newNepaliDate = {
@@ -133,7 +143,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       month: this.currentNepaliDate.month,
       year: this.currentNepaliDate.year,
     };
-    
+
     this.currentDate = this._nepaliDate.nepToEngDate(
       newNepaliDate.day,
       newNepaliDate.month,
@@ -194,10 +204,10 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   setCurrentMonthData() {
     this.resetCurrentMonthData();
-    
+
     // fill the currentMonthData with current date
     let day = this.currentDate.getDay();
-    
+
     this.currentMonthData[day] = [this.currentNepaliDate.day];
 
     // fill the currentMonthData with day before the current date
@@ -276,14 +286,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   prevMonth() {
-
     if (this.currentNepaliDate.month <= 0) {
       this.currentNepaliDate.month = 11;
       this.currentNepaliDate.year--;
     } else {
       this.currentNepaliDate.month--;
     }
-    
+
     const newNepaliDate = {
       day: this.currentNepaliDate.day,
       month: this.currentNepaliDate.month,
@@ -294,8 +303,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       newNepaliDate.month,
       newNepaliDate.year
     );
-    
-    
+
     this.setCurrentMonthData();
   }
 
@@ -306,7 +314,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     } else {
       this.currentNepaliDate.month++;
     }
-   
+
     const newDate = {
       day: this.currentNepaliDate.day,
       month: this.currentNepaliDate.month,

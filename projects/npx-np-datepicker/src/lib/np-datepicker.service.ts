@@ -145,7 +145,6 @@ export class NpDatePickerService {
 
     var difference = this.getEnglishDateDifference(1943, 4, 14);
     
-    
     //Getting nepali year untill the difference remains less than 365
     var index = 0;
     while (difference >= this.nepaliYearDays(index)) {
@@ -155,7 +154,6 @@ export class NpDatePickerService {
       //console.log('Difference:'+difference+ 'nepaliYearDays:'+this.nepaliYearDays(index));
     }
     
-
     //console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
     //Getting nepali month untill the difference remains less than 31
     var i = 0;

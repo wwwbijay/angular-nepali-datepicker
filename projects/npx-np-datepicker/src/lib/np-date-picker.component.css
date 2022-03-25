@@ -48,6 +48,8 @@
     margin-bottom: 1px;
     font-weight: bold;
 }
+
+
 .datepicker__date-container{
     width: 40px;
     height: 40px;
@@ -59,6 +61,12 @@
 }
 .datepicker__date:hover{
     background-color: #eee;
+}
+.datepicker__date.datepicker__date--disabled{
+    background: #f3f3f3;
+}
+.datepicker__date.datepicker__date--disabled:hover{
+    background: #f3f3f3;
 }
 .datepicker__date--active.datepicker__date--active{
     background-color: #e45415;
@@ -90,10 +98,9 @@ select option{
 .np_datepicker_input:focus-visible{
     outline: 2px solid #e45415;
 }
-
 .prev-month,
 .next-month{
-    padding: 5px;
+    padding: 0;
     width: 25px;
     height: 25px;
     display: block;
@@ -102,7 +109,7 @@ select option{
     background: #f3f3f3;
     cursor: pointer;
     text-align: center;
-    line-height: 1em;
+    line-height: 23px;
 }
 .next-month:hover,
 .prev-month:hover{
@@ -113,12 +120,7 @@ select option{
     max-width: 8px;
     height: auto;
 }
-.prev-month{
-    margin-right: 5px;
-}
-.next-month{
-    margin-left: 5px;
-}
+
 /********************
 Dark Theme
 *********************/
@@ -132,6 +134,12 @@ Dark Theme
 }
 .dark select{
     color: #fff;
+}
+.datepicker__date--current-day{
+    border: 2px solid rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 999;
+    height: 100%;
 }
 .dark .datepicker__date--active.datepicker__date--active{
     background-color: #000;
