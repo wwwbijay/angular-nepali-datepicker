@@ -103,7 +103,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     this.selectDate(this.currentNepaliDate.day);
     this.populateYears();
     this.setCurrentMonthData();
-    console.log(this.currentMonthData);
+   // console.log(this.currentMonthData);
   }
 
   populateYears() {
@@ -149,7 +149,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       newNepaliDate.month,
       newNepaliDate.year
     );
-    console.log(this.currentDate);
+   // console.log(this.currentDate);
     this.setCurrentMonthData();
   }
 
