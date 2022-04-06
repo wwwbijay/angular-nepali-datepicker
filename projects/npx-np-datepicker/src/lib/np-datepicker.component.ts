@@ -63,6 +63,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   @Input() hasFuture: Boolean = true;
 
+  @Input() format: string = 'yy-mm-dd';
+
   monthDisplayType: 'default' | 'modern' | 'short' = 'default';
 
   dayDisplayType: 'default' | 'short' = 'short';
@@ -74,7 +76,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       selectedDate.month < 10
         ? '0' + (selectedDate.month + 1)
         : selectedDate.month + 1;
-    return `${dd}/${mm}/${this.selectedDate.year}`;
+
+     switch(this.format){
+      case 'dd-mm-yy':
+        return `${dd}/${mm}/${this.selectedDate.year}`;
+      default:
+        return `${this.selectedDate.year}/${mm}/${dd}`;
+    }   
   };
 
   initialized: boolean = false;
@@ -100,7 +108,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     this.setCurrentDate();
-    this.selectDate(this.currentNepaliDate.day);
+    //this.selectDate(this.currentNepaliDate.day);
     this.populateYears();
     this.setCurrentMonthData();
    // console.log(this.currentMonthData);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NpDatePickerService } from 'projects/npx-np-datepicker/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,20 @@ export class AppComponent implements OnInit{
   title = 'npdatepickertest';
 
   nepaliDate1:any;
+  nepaliDate2:any;
 
-  constructor(){}
+  constructor(
+    public _nepaliDate: NpDatePickerService,
+  ){}
   ngOnInit(){
     
   }
   dateChanged(){
     console.log(this.nepaliDate1);
+  }
+
+  monthChanged(){
+    console.log(this.nepaliDate2);
   }
   
   

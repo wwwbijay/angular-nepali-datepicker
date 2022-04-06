@@ -45,6 +45,44 @@
           <!--.card-body ends-->
         </div>
         <!--.card ends-->
+
+        <!-- # MonthPicker Usage -->
+        <div class="card">
+          <h5 class="card-header">Month Picker Usage</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-6 html">
+                <p>This is basic usage of month picker.</p>
+                <np-datepicker
+                  [(ngModel)]="nepaliDate2"
+                  (ngModelChange)="monthChanged()"
+                  type="month"
+                ></np-datepicker>
+                <div class="output">
+                  <h4 class="output-title">Output:</h4>
+                  <div *ngIf="nepaliDate1">
+                    <p>day: {{ nepaliDate1.day }},</p>
+                    <p>month: {{ nepaliDate1.month }},</p>
+                    <p>year: {{ nepaliDate1.year }}</p>
+                  </div>
+                </div>
+                <!--.output ends-->
+              </div>
+              <!--.col.code ends-->
+              <div class="col html">
+                <h3>Code</h3>
+                <code>
+                  &lt;np-datepicker [(ngModel)]="nepaliDate"&gt;
+                  &lt;/np-datepicker&gt;
+                </code>
+              </div>
+              <!--.col.code ends-->
+            </div>
+            <!--.row ends-->
+          </div>
+          <!--.card-body ends-->
+        </div>
+        <!--.card ends-->
       </ng-template>
     </li>
   </ul>
