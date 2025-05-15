@@ -19,21 +19,21 @@ export class NpDatePickerService {
     [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2008
     [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30], // 2009
     [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31], // 2010
-    [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30],
-    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30],
-    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
-    [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30],
-    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 32, 31, 32, 31, 30, 30, 29, 30, 29, 30, 30],
-    [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-    [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30],
-    [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-    [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
-    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
+    [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30], // 2011
+    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2012
+    [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30], // 2013
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31], // 2014
+    [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30], // 2015
+    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2016
+    [31, 32, 31, 32, 31, 30, 30, 29, 30, 29, 30, 30], // 2017
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31], // 2018
+    [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30], // 2019
+    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2020
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30], // 2021
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31], // 2022
+    [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30], // 2023
+    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2024
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31], // 2025
     [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
     [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
     [31, 31, 32, 31, 32, 30, 30, 29, 30, 29, 30, 30],
@@ -87,10 +87,10 @@ export class NpDatePickerService {
     [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
     [31, 31, 31, 32, 31, 31, 30, 29, 30, 29, 30, 30], // 2078
     [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2079
-    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30],
-    [31, 31, 32, 32, 31, 30, 30, 30, 29, 30, 30, 30],
-    [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30],
-    [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 30, 30],
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30], // 2080
+    [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31], // 2081
+    [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30], // 2082
+    [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 30, 30], // 2083
     [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 30, 30],
     [31, 32, 31, 32, 30, 31, 30, 30, 29, 30, 30, 30],
     [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30],
@@ -126,7 +126,7 @@ export class NpDatePickerService {
 
   setCurrentNepaliDate() {
     var d = new Date();
-    return this.engToNepDate( d.getDate(), d.getMonth(),d.getFullYear() );
+    return this.engToNepDate(d.getDate(), d.getMonth(), d.getFullYear());
   }
 
   //English to Nepali date conversion
@@ -137,14 +137,14 @@ export class NpDatePickerService {
     this.englishYear = year;
     this.englishMonth = month + 1;
     this.englishDate = date;
-    
+
     //Setting nepali reference to 2000/1/1 with english date 1943/4/14
     this.nepaliYear = 2000;
     this.nepaliMonth = 1;
     this.nepaliDate = 1;
 
     var difference = this.getEnglishDateDifference(1943, 4, 14);
-    
+
     //Getting nepali year untill the difference remains less than 365
     var index = 0;
     while (difference >= this.nepaliYearDays(index)) {
@@ -153,7 +153,7 @@ export class NpDatePickerService {
       index++;
       //console.log('Difference:'+difference+ 'nepaliYearDays:'+this.nepaliYearDays(index));
     }
-    
+
     //console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
     //Getting nepali month untill the difference remains less than 31
     var i = 0;
@@ -165,11 +165,11 @@ export class NpDatePickerService {
     }
     this.nepaliMonth--;
     //console.log(difference);
-   
+
     //Remaning days is the date;
     this.nepaliDate = this.nepaliDate + difference;
     this.getDay();
-    
+
     return {
       day: this.nepaliDate,
       month: this.nepaliMonth,
@@ -236,7 +236,7 @@ export class NpDatePickerService {
     }
 
     this.nepaliYear = year;
-    this.nepaliMonth = month+1;
+    this.nepaliMonth = month + 1;
     this.nepaliDate = date;
 
     //Setting english reference to 1944/1/1 with nepali date 2000/9/17
