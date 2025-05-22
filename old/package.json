@@ -1,15 +1,18 @@
 {
   "name": "ngx-np-datepicker",
-  "version": "2.2.3",
-  "description": "A simple Nepali Date Picker(Bikram Sambat) library in angular.",
+  "version": "2.2.5",
+  "description": "A modern and lightweight Nepali datepicker component for Angular applications."
   "homepage": "https://wwwbijay.github.io/angular-nepali-datepicker/",
   "keywords": [
-    "Angular",
-    "Typescript",
-    "Javascript",
-    "Nepali Date Picker",
-    "Angular Nepali Date Picker"
-  ],
+  "angular",
+  "nepali",
+  "datepicker",
+  "nepali datepicker",
+  "nepali calendar",
+  "angular datepicker",
+  "bs datepicker",
+  "bikram sambat"
+],
   "license": [
     {
       "type": "MIT",

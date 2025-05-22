@@ -60,7 +60,7 @@
 }
 .datepicker__date {
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 4px;
 }
 .datepicker__date:hover {
   background-color: #eee;
@@ -112,6 +112,7 @@ select option {
   text-align: center;
   line-height: 23px;
 }
+
 .next-month:hover,
 .prev-month:hover {
   background: #ccc;
@@ -120,6 +121,23 @@ select option {
 .next-month svg {
   max-width: 8px;
   height: auto;
+}
+
+.select-today {
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  display: block;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 23px;
+}
+.select-today:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+.select-today svg {
+  max-width: 100%;
 }
 
 /********************
@@ -140,7 +158,8 @@ Dark Theme
   color: #fff;
 }
 .datepicker__date--current-day {
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: #f3f3f3;
+  border: 2px dashed rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 999;
   height: 100%;

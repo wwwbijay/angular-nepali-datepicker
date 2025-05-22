@@ -77,12 +77,12 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
         ? '0' + (selectedDate.month + 1)
         : selectedDate.month + 1;
 
-     switch(this.format){
+    switch (this.format) {
       case 'dd-mm-yy':
         return `${dd}/${mm}/${this.selectedDate.year}`;
       default:
         return `${this.selectedDate.year}/${mm}/${dd}`;
-    }   
+    }
   };
 
   initialized: boolean = false;
@@ -111,7 +111,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     //this.selectDate(this.currentNepaliDate.day);
     this.populateYears();
     this.setCurrentMonthData();
-   // console.log(this.currentMonthData);
+    // console.log(this.currentMonthData);
   }
 
   populateYears() {
@@ -119,6 +119,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       this.years.push(i);
     }
   }
+
   selectYear(e: any) {
     this.currentNepaliDate.year = parseInt(e.target.value);
 
@@ -157,7 +158,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       newNepaliDate.month,
       newNepaliDate.year
     );
-   // console.log(this.currentDate);
+    // console.log(this.currentDate);
     this.setCurrentMonthData();
   }
 
@@ -172,6 +173,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       6: [],
     };
   }
+
   formatValue() {
     if (this.selectedDate) {
       this.formattedDate = this.dateFormatter(this.selectedDate);
@@ -190,6 +192,21 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   registerOnTouched() {}
   registerOnChange(fn: any) {
     this.propagateChange = fn;
+  }
+
+  selectToday() {
+    const EnglistDateToday = new Date();
+
+    this.currentNepaliDate = this._nepaliDate.engToNepDate(
+      EnglistDateToday.getDate(),
+      EnglistDateToday.getMonth(),
+      EnglistDateToday.getFullYear()
+    );
+
+    this.selectedDate = { ...this.currentNepaliDate };
+    this.formatValue();
+    this.close();
+    this.propagateChange(this.selectedDate);
   }
 
   setCurrentDate() {

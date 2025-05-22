@@ -1,6 +1,7 @@
 # Angular Nepali Datepicker
 
-A configurable Nepali Date Picker(Bikram Sambat) built for angular applications. Supports latest (Angular 19) version.
+`ngx-np-datepicker` is an Angular datepicker component that supports the Nepali calendar (Bikram Sambat). 
+It allows users to pick Nepali dates easily, supports form integrations, and is ideal for applications needing a native Nepali date experience.
 
 ### Demo
 
