@@ -57,12 +57,9 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   @Input()
   theme!: string;
-
   @Input()
   language: 'en' | 'ne' = 'ne';
-
   @Input() hasFuture: Boolean = true;
-
   @Input() format: string = 'yy-mm-dd';
 
   monthDisplayType: 'default' | 'modern' | 'short' = 'default';
@@ -70,7 +67,6 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   dayDisplayType: 'default' | 'short' = 'short';
 
   dateFormatter: DateFormatter = (selectedDate: NepaliDate) => {
-    console.log(selectedDate, "selectedDate...");
     
     const dd =
       selectedDate.day < 10 ? '0' + selectedDate.day : selectedDate.day;
