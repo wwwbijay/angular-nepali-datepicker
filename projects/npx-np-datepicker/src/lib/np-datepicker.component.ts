@@ -57,12 +57,9 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   @Input()
   theme!: string;
-
   @Input()
   language: 'en' | 'ne' = 'ne';
-
   @Input() hasFuture: Boolean = true;
-
   @Input() format: string = 'yy-mm-dd';
 
   monthDisplayType: 'default' | 'modern' | 'short' = 'default';
@@ -70,12 +67,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   dayDisplayType: 'default' | 'short' = 'short';
 
   dateFormatter: DateFormatter = (selectedDate: NepaliDate) => {
+    
     const dd =
       selectedDate.day < 10 ? '0' + selectedDate.day : selectedDate.day;
     const mm =
       selectedDate.month < 10
-        ? '0' + (selectedDate.month + 1)
-        : selectedDate.month + 1;
+        ? '0' + (selectedDate.month)
+        : selectedDate.month;
 
     switch (this.format) {
       case 'dd-mm-yy':
@@ -194,21 +192,6 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     this.propagateChange = fn;
   }
 
-  selectToday() {
-    const EnglistDateToday = new Date();
-
-    this.currentNepaliDate = this._nepaliDate.engToNepDate(
-      EnglistDateToday.getDate(),
-      EnglistDateToday.getMonth(),
-      EnglistDateToday.getFullYear()
-    );
-
-    this.selectedDate = { ...this.currentNepaliDate };
-    this.formatValue();
-    this.close();
-    this.propagateChange(this.selectedDate);
-  }
-
   setCurrentDate() {
     if (!this.selectedDate) {
       this.currentNepaliDate = this._nepaliDate.engToNepDate(
@@ -303,6 +286,21 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
+  selectToday() {
+    const EnglistDateToday = new Date();
+
+    this.currentNepaliDate = this._nepaliDate.engToNepDate(
+      EnglistDateToday.getDate(),
+      EnglistDateToday.getMonth(),
+      EnglistDateToday.getFullYear()
+    );
+
+    this.selectedDate = { ...this.currentNepaliDate };
+    this.formatValue();
+    this.close();
+    this.propagateChange(this.selectedDate);
+  }
+
   selectDate(day: number) {
     this.selectedDate = { ...this.currentNepaliDate, day };
     this.formatValue();
@@ -311,8 +309,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   prevMonth() {
-    if (this.currentNepaliDate.month <= 0) {
-      this.currentNepaliDate.month = 11;
+    if (this.currentNepaliDate.month <= 1) {
+      this.currentNepaliDate.month = 12;
       this.currentNepaliDate.year--;
     } else {
       this.currentNepaliDate.month--;
@@ -333,8 +331,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   }
 
   nextMonth() {
-    if (this.currentNepaliDate.month >= 11) {
-      this.currentNepaliDate.month = 0;
+    if (this.currentNepaliDate.month >= 12) {
+      this.currentNepaliDate.month = 1;
       this.currentNepaliDate.year++;
     } else {
       this.currentNepaliDate.month++;

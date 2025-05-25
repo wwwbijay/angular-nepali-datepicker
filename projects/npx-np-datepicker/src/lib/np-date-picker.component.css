@@ -90,13 +90,13 @@ select:focus-visible {
 select option {
   color: #333;
 }
-.np_datepicker_input {
+.ngx_np_datepicker_input {
   border: 1px solid #eee;
   padding: 10px;
   font-size: 16px;
   color: #777;
 }
-.np_datepicker_input:focus-visible {
+.ngx_np_datepicker_input:focus-visible {
   outline: 2px solid #e45415;
 }
 .prev-month,
@@ -168,7 +168,7 @@ Dark Theme
   background-color: #000;
   color: #fff;
 }
-.dark .np_datepicker_input:focus-visible {
+.dark .ngx_np_datepicker_input:focus-visible {
   outline: 2px solid #000;
 }
 
@@ -209,7 +209,7 @@ Light Theme
   background-color: #aaa;
   color: #fff;
 }
-.light .np_datepicker_input:focus-visible {
+.light .ngx_np_datepicker_input:focus-visible {
   outline: 1px solid #ddd;
 }
 
@@ -230,9 +230,9 @@ lightblue Theme
   background-color: #38c5f0da;
   color: #fff;
 }
-.lightblue .np_datepicker_input:focus-visible {
+.lightblue .ngx_np_datepicker_input:focus-visible {
   outline: 2px solid #38c5f0da;
 }
-.lightblue .np_datepicker_input:focus-visible {
+.lightblue .ngx_np_datepicker_input:focus-visible {
   outline: 1px solid #38c5f0da;
 }

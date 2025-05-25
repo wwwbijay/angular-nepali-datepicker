@@ -1,6 +1,6 @@
 <div class="nepali-date-picker" [ngClass]="theme">
   <input
-    class="np_datepicker_input"
+    class="ngx_np_datepicker_input"
     type="text"
     [value]="formattedDate"
     (focus)="open()"
@@ -19,11 +19,9 @@
       />
     </svg>
   </a>
-  <ng-container [ngTemplateOutlet]="dp" *ngIf="isOpen"></ng-container>
+  <ng-container [ngTemplateOutlet]="npdp" *ngIf="isOpen"></ng-container>
 </div>
-<!--.nepali-date-picker-->
-
-<ng-template #dp>
+<ng-template #npdp>
   <div class="datepicker__container">
     <div class="datepicker__options-container">
       <a class="prev-month" (click)="prevMonth()">

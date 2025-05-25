@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { NP_DATE } from './dateconst';
+import { NepaliDateObj } from '../public-api';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NpDatePickerService {
+export class NgxDatePickerService {
   englishMonths = NP_DATE.englishMonths;
   englishLeapMonths = NP_DATE.englishLeapMonths;
   nepaliMonths = NP_DATE.nepaliMonths;
@@ -20,17 +21,8 @@ export class NpDatePickerService {
   weekDay: any;
   format = '.';
 
-  constructor() {
-    var d = new Date();
-  }
-
-  setCurrentNepaliDate() {
-    var d = new Date();
-    return this.engToNepDate(d.getDate(), d.getMonth(), d.getFullYear());
-  }
-
   //English to Nepali date conversion
-  engToNepDate(date: any, month: any, year: any) {
+  engToNepDate(date: any, month: any, year: any):NepaliDateObj {
     if (!this.isEnglishRange(date, month, year))
       console.log('Invalid date format.');
 
@@ -43,10 +35,10 @@ export class NpDatePickerService {
     this.nepaliMonth = 1;
     this.nepaliDate = 1;
 
-    var difference = this.getEnglishDateDifference(1943, 4, 14);
+    let difference = this.getEnglishDateDifference(1943, 4, 14);
 
     //Getting nepali year untill the difference remains less than 365
-    var index = 0;
+    let index = 0;
     while (difference >= this.nepaliYearDays(index)) {
       this.nepaliYear++;
       difference = difference - this.nepaliYearDays(index);
@@ -56,7 +48,7 @@ export class NpDatePickerService {
 
     //console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
     //Getting nepali month untill the difference remains less than 31
-    var i = 0;
+    let i = 0;
     while (difference >= this.nepaliMonths[index][i]) {
       difference = difference - this.nepaliMonths[index][i];
       this.nepaliMonth++;
@@ -78,7 +70,7 @@ export class NpDatePickerService {
   }
 
   //ISO format English string date (YYYY-MM-DD) to Nepali date conversion
-  engStringToNepDate(engDate: string) {
+  engStringToNepDate(engDate: string):NepaliDateObj {
     const [year, month, day] = engDate.split('-').map(Number);
 
     if (!this.isEnglishRange(day, month, year))
@@ -93,10 +85,10 @@ export class NpDatePickerService {
     this.nepaliMonth = 1;
     this.nepaliDate = 1;
 
-    var difference = this.getEnglishDateDifference(1943, 4, 14);
+    let difference = this.getEnglishDateDifference(1943, 4, 14);
 
     //Getting nepali year untill the difference remains less than 365
-    var index = 0;
+    let index = 0;
     while (difference >= this.nepaliYearDays(index)) {
       this.nepaliYear++;
       difference = difference - this.nepaliYearDays(index);
@@ -106,7 +98,7 @@ export class NpDatePickerService {
 
     //console.log("nepaliMonths="+this.nepaliMonths[index][0]+"difference:"+difference);
     //Getting nepali month untill the difference remains less than 31
-    var i = 0;
+    let i = 0;
     while (difference >= this.nepaliMonths[index][i]) {
       difference = difference - this.nepaliMonths[index][i];
       this.nepaliMonth++;
@@ -127,16 +119,9 @@ export class NpDatePickerService {
     };
   }
 
-  toEnglishString(format: any) {
-    if (typeof format === 'undefined') format = '-';
-    return (
-      this.englishYear + format + this.englishMonth + format + this.englishDate
-    );
-  }
-
   getEnglishDateDifference(year: any, month: any, date: any) {
     //Getting difference from the current date with the date provided
-    var difference =
+    let difference =
       this.countTotalEnglishDays(
         this.englishYear,
         this.englishMonth,
@@ -146,9 +131,9 @@ export class NpDatePickerService {
   }
 
   countTotalEnglishDays(year: any, month: any, date: any) {
-    var totalDays = year * 365 + date;
+    let totalDays = year * 365 + date;
 
-    for (var i = 0; i < month - 1; i++)
+    for (let i = 0; i < month - 1; i++)
       totalDays = totalDays + this.englishMonths[i];
 
     totalDays = totalDays + this.countleap(year, month);
@@ -194,7 +179,7 @@ export class NpDatePickerService {
     this.englishMonth = 1;
     this.englishDate = 1;
 
-    var difference = this.getNepaliDateDifference(2000, 9, 17);
+    let difference = this.getNepaliDateDifference(2000, 9, 17);
 
     //Getting english year untill the difference remains less than 365
     while (difference >= (this.isLeapYear(this.englishYear) ? 366 : 365)) {
@@ -203,10 +188,10 @@ export class NpDatePickerService {
     }
 
     //Getting english month untill the difference remains less than 31
-    var monthDays = this.isLeapYear(this.englishYear)
+    let monthDays = this.isLeapYear(this.englishYear)
       ? this.englishLeapMonths
       : this.englishMonths;
-    var i = 0;
+    let i = 0;
     while (difference >= monthDays[i]) {
       this.englishMonth++;
       difference = difference - monthDays[i];
@@ -231,7 +216,7 @@ export class NpDatePickerService {
 
   getNepaliDateDifference(year: any, month: any, date: any) {
     //Getting difference from the current date with the date provided
-    var difference =
+    let difference =
       this.countTotalNepaliDays(
         this.nepaliYear,
         this.nepaliMonth,
@@ -241,23 +226,23 @@ export class NpDatePickerService {
   }
 
   countTotalNepaliDays(year: any, month: any, date: any) {
-    var total = 0;
+    let total = 0;
     if (year < 2000) return 0;
 
     total = total + (date - 1);
 
-    var yearIndex = year - 2000;
-    for (var i = 0; i < month - 1; i++)
+    let yearIndex = year - 2000;
+    for (let i = 0; i < month - 1; i++)
       total = total + this.nepaliMonths[yearIndex][i];
 
-    for (var i = 0; i < yearIndex; i++) total = total + this.nepaliYearDays(i);
+    for (let i = 0; i < yearIndex; i++) total = total + this.nepaliYearDays(i);
 
     return total;
   }
 
   nepaliYearDays(index: any) {
-    var total = 0;
-    for (var i = 0; i < 12; i++) total += this.nepaliMonths[index][i];
+    let total = 0;
+    for (let i = 0; i < 12; i++) total += this.nepaliMonths[index][i];
     return total;
   }
 
@@ -272,11 +257,9 @@ export class NpDatePickerService {
     return true;
   }
 
-  //Class Regular methods
-
   getDay() {
     //Reference date 1943/4/14 Wednesday
-    var difference = this.getEnglishDateDifference(1943, 4, 14);
+    const difference = this.getEnglishDateDifference(1943, 4, 14);
     this.weekDay = ((3 + (difference % 7)) % 7) + 1;
     return this.weekDay;
   }
