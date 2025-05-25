@@ -20,11 +20,7 @@ export class NpDatePickerService {
   weekDay: any;
   format = '.';
 
-  constructor() {
-    var d = new Date();
-  }
-
-  setCurrentNepaliDate() {
+  private setCurrentNepaliDate() {
     var d = new Date();
     return this.engToNepDate(d.getDate(), d.getMonth(), d.getFullYear());
   }
@@ -127,14 +123,14 @@ export class NpDatePickerService {
     };
   }
 
-  toEnglishString(format: any) {
+  private toEnglishString(format: any) {
     if (typeof format === 'undefined') format = '-';
     return (
       this.englishYear + format + this.englishMonth + format + this.englishDate
     );
   }
 
-  getEnglishDateDifference(year: any, month: any, date: any) {
+  private getEnglishDateDifference(year: any, month: any, date: any) {
     //Getting difference from the current date with the date provided
     var difference =
       this.countTotalEnglishDays(
@@ -145,7 +141,7 @@ export class NpDatePickerService {
     return difference < 0 ? -difference : difference;
   }
 
-  countTotalEnglishDays(year: any, month: any, date: any) {
+  private countTotalEnglishDays(year: any, month: any, date: any) {
     var totalDays = year * 365 + date;
 
     for (var i = 0; i < month - 1; i++)
@@ -155,7 +151,7 @@ export class NpDatePickerService {
     return totalDays;
   }
 
-  countleap(year: any, month: any) {
+  private countleap(year: any, month: any) {
     if (month <= 2) year--;
 
     return (
@@ -163,7 +159,7 @@ export class NpDatePickerService {
     );
   }
 
-  isEnglishRange(date: any, month: any, year: any) {
+  private isEnglishRange(date: any, month: any, year: any) {
     if (year < 1944 || year > 2042) return false;
     if (month < 1 || month > 12) return false;
     if (date < 1 || date > 31) return false;
@@ -171,7 +167,7 @@ export class NpDatePickerService {
     return true;
   }
 
-  isLeapYear(year: any) {
+  private isLeapYear(year: any) {
     if (year % 4 === 0) {
       return year % 100 === 0 ? year % 400 === 0 : true;
     } else return false;
@@ -222,14 +218,14 @@ export class NpDatePickerService {
     );
   }
 
-  toNepaliString(format: any) {
+  private toNepaliString(format: any) {
     if (typeof format === 'undefined') format = '-';
     return (
       this.nepaliYear + format + this.nepaliMonth + format + this.nepaliDate
     );
   }
 
-  getNepaliDateDifference(year: any, month: any, date: any) {
+  private getNepaliDateDifference(year: any, month: any, date: any) {
     //Getting difference from the current date with the date provided
     var difference =
       this.countTotalNepaliDays(
@@ -240,7 +236,7 @@ export class NpDatePickerService {
     return difference < 0 ? -difference : difference;
   }
 
-  countTotalNepaliDays(year: any, month: any, date: any) {
+  private countTotalNepaliDays(year: any, month: any, date: any) {
     var total = 0;
     if (year < 2000) return 0;
 
@@ -255,13 +251,13 @@ export class NpDatePickerService {
     return total;
   }
 
-  nepaliYearDays(index: any) {
+  private nepaliYearDays(index: any) {
     var total = 0;
     for (var i = 0; i < 12; i++) total += this.nepaliMonths[index][i];
     return total;
   }
 
-  isNepaliRange(date: any, month: any, year: any) {
+  private isNepaliRange(date: any, month: any, year: any) {
     if (year < 2000 || year > 2099) return false;
 
     if (month < 0 || month > 11) return false;
@@ -274,33 +270,33 @@ export class NpDatePickerService {
 
   //Class Regular methods
 
-  getDay() {
+  private getDay() {
     //Reference date 1943/4/14 Wednesday
     var difference = this.getEnglishDateDifference(1943, 4, 14);
     this.weekDay = ((3 + (difference % 7)) % 7) + 1;
     return this.weekDay;
   }
 
-  getEnglishYear() {
+  private getEnglishYear() {
     return this.englishYear;
   }
 
-  getEnglishMonth() {
+  private getEnglishMonth() {
     return this.englishMonth;
   }
 
-  getEnglishDate() {
+  private getEnglishDate() {
     return this.englishDate;
   }
 
-  getNepaliYear() {
+  private getNepaliYear() {
     return this.nepaliYear;
   }
-  getNepaliMonth() {
+  private getNepaliMonth() {
     return this.nepaliMonth;
   }
 
-  getNepaliDate() {
+  private getNepaliDate() {
     return this.nepaliDate;
   }
 }
