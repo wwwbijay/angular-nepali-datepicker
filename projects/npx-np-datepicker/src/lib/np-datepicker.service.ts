@@ -81,7 +81,7 @@ export class NpDatePickerService {
       console.log('Invalid date format.');
 
     this.englishYear = year;
-    this.englishMonth = month + 1;
+    this.englishMonth = month;
     this.englishDate = day;
 
     //Setting nepali reference to 2000/1/1 with english date 1943/4/14
