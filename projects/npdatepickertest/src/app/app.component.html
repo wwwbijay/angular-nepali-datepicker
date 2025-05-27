@@ -83,6 +83,43 @@
           <!--.card-body ends-->
         </div>
         <!--.card ends-->
+
+        <!-- # Reactive Form Usage -->
+        <div class="card">
+          <h5 class="card-header">Date Conversion</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-6 html">
+                <p>This is basic usage of date conversion service.</p>
+                <np-datepicker
+                  [(ngModel)]="nepaliDate3"
+                  theme="light"
+                ></np-datepicker>
+                <div class="output">
+                  <h4 class="output-title">Output:</h4>
+                  <div *ngIf="nepaliDate2 && nepaliDate2.value">
+                    <p>day: {{ nepaliDate2.value?.day }},</p>
+                    <p>month: {{ nepaliDate2.value?.month }},</p>
+                    <p>year: {{ nepaliDate2.value?.year }}</p>
+                  </div>
+                </div>
+                <!--.output ends-->
+              </div>
+              <!--.col.code ends-->
+              <div class="col html">
+                <h3>Code</h3>
+                <code>
+                  &lt;np-datepicker [(ngModel)]="nepaliDate"&gt;
+                  &lt;/np-datepicker&gt;
+                </code>
+              </div>
+              <!--.col.code ends-->
+            </div>
+            <!--.row ends-->
+          </div>
+          <!--.card-body ends-->
+        </div>
+        <!--.card ends-->
       </ng-template>
     </li>
   </ul>
