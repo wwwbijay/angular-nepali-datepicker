@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { NpDatePickerService } from 'projects/npx-np-datepicker/src/public-api';
+import {
+  NpDateObj,
+  NpDatePickerService,
+} from 'projects/npx-np-datepicker/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +13,14 @@ import { NpDatePickerService } from 'projects/npx-np-datepicker/src/public-api';
 export class AppComponent implements OnInit {
   title = 'npdatepickertest';
 
-  nepaliDate1: any;
+  nepaliDate1!: NpDateObj;
 
   dateForm = new FormGroup({
     nepaliDate2: new FormControl(),
   });
 
-  nepaliDate3: any;
+  nepaliDate3!: NpDateObj;
+  nepaliDate4!: NpDateObj;
 
   constructor(public _nepaliDate: NpDatePickerService) {}
 
@@ -33,11 +37,9 @@ export class AppComponent implements OnInit {
       '-' +
       String(today.getDate()).padStart(2, '0');
 
-      console.log(formatted, "formatted...");
+    console.log(formatted, 'formatted...');
 
-      this.nepaliDate3 = this._nepaliDate.engStringToNepDate(formatted);
-      
-      
+    this.nepaliDate3 = this._nepaliDate.engStringToNepDate(formatted);
   }
   dateChanged() {
     console.log(this.nepaliDate1);
@@ -53,5 +55,10 @@ export class AppComponent implements OnInit {
 
   onSubmit() {
     console.log('Selected date:', this.dateForm.value);
+  }
+
+  changeStartDate(selectedDate: any) {
+    console.log('Selected Date:', selectedDate);
+    // Handle logic based on selected date
   }
 }

@@ -53,6 +53,14 @@ const nepalidate2 = this._nepaliDate.engToNepDate(day, month, year);
 const englishdate = this._nepaliDate.nepToEngDate(day, month, year);
 ```
 
+### Date Selected Event
+dateSelected
+```
+ <np-datepicker
+                  [(ngModel)]="nepaliDate"
+                  (dateSelected)="changeStartDate($event)"
+                ></np-datepicker>
+```			
 ### Format
 
 The supported date format is dd-mm-yyyy

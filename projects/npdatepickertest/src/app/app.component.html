@@ -84,7 +84,7 @@
         </div>
         <!--.card ends-->
 
-        <!-- # Reactive Form Usage -->
+        <!-- # Date Conversion Usage -->
         <div class="card">
           <h5 class="card-header">Date Conversion</h5>
           <div class="card-body">
@@ -120,6 +120,45 @@
           <!--.card-body ends-->
         </div>
         <!--.card ends-->
+
+        <!-- # DateSelected Event Usage -->
+        <div class="card">
+          <h5 class="card-header">DateSelected Event</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-6 html">
+                <p>This is basic usage of dateSelected Event.</p>
+                <np-datepicker
+                  [(ngModel)]="nepaliDate4"
+                  theme="light"
+                  (dateSelected)="changeStartDate($event)"
+                ></np-datepicker>
+                <div class="output">
+                  <h4 class="output-title">Output:</h4>
+                  <div *ngIf="nepaliDate2 && nepaliDate2.value">
+                    <p>day: {{ nepaliDate2.value?.day }},</p>
+                    <p>month: {{ nepaliDate2.value?.month }},</p>
+                    <p>year: {{ nepaliDate2.value?.year }}</p>
+                  </div>
+                </div>
+                <!--.output ends-->
+              </div>
+              <!--.col.code ends-->
+              <div class="col html">
+                <h3>Code</h3>
+                <code>
+                  &lt;np-datepicker [(ngModel)]="nepaliDate"&gt;
+                  &lt;/np-datepicker&gt;
+                </code>
+              </div>
+              <!--.col.code ends-->
+            </div>
+            <!--.row ends-->
+          </div>
+          <!--.card-body ends-->
+        </div>
+        <!--.card ends-->
+
       </ng-template>
     </li>
   </ul>

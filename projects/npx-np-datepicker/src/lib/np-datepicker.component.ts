@@ -6,6 +6,8 @@ import {
   Input,
   forwardRef,
   ViewEncapsulation,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { NpDatePickerService } from './np-datepicker.service';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -62,6 +64,8 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   @Input() hasFuture: Boolean = true;
   @Input() format: string = 'yy-mm-dd';
 
+  @Output() dateSelected = new EventEmitter<any>();
+  
   monthDisplayType: 'default' | 'modern' | 'short' = 'default';
 
   dayDisplayType: 'default' | 'short' = 'short';
@@ -297,6 +301,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     this.formatValue();
     this.close();
     this.propagateChange(this.selectedDate);
+    this.dateSelected.emit(this.selectedDate);
   }
 
   selectDate(day: number) {
@@ -304,6 +309,7 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     this.formatValue();
     this.close();
     this.propagateChange(this.selectedDate);
+     this.dateSelected.emit(this.selectedDate);
   }
 
   prevMonth() {
