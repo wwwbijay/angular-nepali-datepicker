@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
       console.log(formatted, "formatted...");
 
       this.nepaliDate3 = this._nepaliDate.engStringToNepDate(formatted);
-
       
       
   }

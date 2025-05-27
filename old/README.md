@@ -40,9 +40,18 @@ then use `<np-datepicker [(ngModel)]="nepaliDate"></np-datepicker>` in your temp
 <np-datepicker></np-datepicker>
 ```
 
-### Note
-
-This package has no dependency.
+### Date Conversion Service
+Inject service:
+```
+constructor(private _nepaliDate: NpDatePickerService){}
+```
+Use conversion methods
+```
+//string_date = 2025-05-27 
+const nepaliDate1 = this._nepaliDate.engStringToNepDate(string_date);
+const nepalidate2 = this._nepaliDate.engToNepDate(day, month, year);
+const englishdate = this._nepaliDate.nepToEngDate(day, month, year);
+```
 
 ### Format
 

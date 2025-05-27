@@ -1,5 +1,5 @@
 {
-  "name": "np-datepicker",
+  "name": "ngx-np-datepicker",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "npdpbuild": "ng build --prod ngx-np-datepicker"
+    "ngxnpbuild": "ng build --prod ngx-np-datepicker"
   },
   "dependencies": {
     "@angular/animations": "~13.1.0",

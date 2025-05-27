@@ -1,6 +1,6 @@
 {
   "name": "ngx-np-datepicker",
-  "version": "2.3.1",
+  "version": "2.5.0",
   "description": "A modern and lightweight Angular component for selecting Nepali (Bikram Sambat) dates. Ideal for forms and applications using the Nepali calendar system.",
   "homepage": "https://wwwbijay.github.io/angular-nepali-datepicker/",
   "keywords": [
